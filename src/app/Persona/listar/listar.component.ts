@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { BrowserDynamicTestingModule } from '@angular/platform-browser-dynamic/testing';
 import { Router } from '@angular/router';
 import { Persona } from 'src/app/Models/Persona.interface';
+import { PersonaServicioService } from 'src/app/Services/persona-servicio.service';
 
 @Component({
   selector: 'app-listar',
@@ -10,12 +11,13 @@ import { Persona } from 'src/app/Models/Persona.interface';
 })
 export class ListarComponent implements OnInit {
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, private personaService: PersonaServicioService) { }
   dataSource: Persona[] = [
-    {id:1,nombre:'Bryan', apellido:'Luis',correo:'bryan.luis@segurosbolivar.com'}
+    { id: 1, nombre: 'Bryan', apellido: 'Luis', correo: 'bryan.luis@segurosbolivar.com' }
   ];
   displayedColumns: string[] = ['id', 'nombre', 'apellido', 'correo', 'acciones'];
   ngOnInit(): void {
+    this.cargarPersonas();
   }
   editar() {
     this.router.navigate(['editar']);
@@ -23,5 +25,10 @@ export class ListarComponent implements OnInit {
   }
   eliminar() {
     console.log("Eliminar");
+  }
+  cargarPersonas() {
+    this.personaService.lsitarPersonas().subscribe((personas) => {
+      
+    })
   }
 }

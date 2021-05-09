@@ -1,15 +1,24 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
+import { Persona } from '../Models/Persona.interface';
 
 @Injectable({
   providedIn: 'root'
 })
 export class PersonaServicioService {
-  baseUrl = 'http.localhost.com'
+  baseUrl = 'localhost:8080/api/users'
   constructor(private http: HttpClient) { }
-  cargarPersona() {
-    return this.http.get(this.baseUrl);
+  lsitarPersonas() {
+    return this.http.get<Persona[]>(this.baseUrl);
   }
+  mostrarPersona(id: number): Observable<Persona> {
+    return this.http.get<Persona>(this.baseUrl + `/${id}`)
+  }
+  eliminarPersona(id: number) {
+    return this.http.delete(this.baseUrl + `/${id}`);
+  }
+
 
 
 }
