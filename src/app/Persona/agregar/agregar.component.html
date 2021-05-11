@@ -1,1 +1,32 @@
-<p>agregar works!</p>
+<div class="container">
+    <mat-card>
+        <form autocomplete="off" [formGroup]="personaForm" (ngSubmit)="guardarPersona()">
+            <div class="form-group" fxLayoutAlign="space-between" fxLayout="row wrap">
+                <mat-form-field appearance="outline">
+                    <mat-label>Nombre</mat-label>
+                    <input matInput placeholder="Nombre" formControlName="name">
+                    <mat-hint>Nombre</mat-hint>
+                    <mat-error>Campo obligatorio</mat-error>
+                </mat-form-field>
+            </div>
+            <div class="form-group" fxLayoutAlign="space-between" fxLayout="row wrap">
+                <mat-form-field appearance="outline">
+                    <mat-label>Apellido</mat-label>
+                    <input matInput placeholder="Apellido" formControlName="lastname">
+                    <mat-hint>Apellido</mat-hint>
+                    <mat-error>Campo obligatorio</mat-error>
+                </mat-form-field>
+            </div>
+            <div class="form-group" fxLayoutAlign="space-between" fxLayout="row wrap">
+
+                <mat-form-field appearance="outline">
+                    <mat-label>Correo</mat-label>
+                    <input matInput placeholder="Correo" formControlName="email">
+                    <mat-hint>Correo</mat-hint>
+                    <mat-error>Campo obligatorio</mat-error>
+                </mat-form-field>
+            </div>
+        </form>
+        <button mat-raised-button color="primary" type="submit" [disabled]="!personaForm.valid">Guardar</button>
+    </mat-card>
+</div>

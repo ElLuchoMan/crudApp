@@ -1,6 +1,6 @@
 export interface Persona {
-    id: number;
-    nombre: string;
-    apellido: string;
-    correo: string;
+    id?: number;
+    name: string;
+    lastname: string;
+    email: string;
 }

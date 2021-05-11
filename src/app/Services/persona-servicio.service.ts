@@ -9,7 +9,7 @@ import { Persona } from '../Models/Persona.interface';
 export class PersonaServicioService {
   baseUrl = 'localhost:8080/api/users'
   constructor(private http: HttpClient) { }
-  lsitarPersonas() {
+  listarPersonas() {
     return this.http.get<Persona[]>(this.baseUrl);
   }
   mostrarPersona(id: number): Observable<Persona> {
@@ -17,6 +17,9 @@ export class PersonaServicioService {
   }
   eliminarPersona(id: number) {
     return this.http.delete(this.baseUrl + `/${id}`);
+  }
+  agregarPersona(persona: Persona) {
+    return this.http.post(this.baseUrl, persona);
   }
 
 

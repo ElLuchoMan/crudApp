@@ -12,9 +12,7 @@ import { PersonaServicioService } from 'src/app/Services/persona-servicio.servic
 export class ListarComponent implements OnInit {
 
   constructor(private router: Router, private personaService: PersonaServicioService) { }
-  dataSource: Persona[] = [
-    { id: 1, nombre: 'Bryan', apellido: 'Luis', correo: 'bryan.luis@segurosbolivar.com' }
-  ];
+  dataSource: Persona[] = [];
   displayedColumns: string[] = ['id', 'nombre', 'apellido', 'correo', 'acciones'];
   ngOnInit(): void {
     this.cargarPersonas();
@@ -27,8 +25,9 @@ export class ListarComponent implements OnInit {
     console.log("Eliminar");
   }
   cargarPersonas() {
-    this.personaService.lsitarPersonas().subscribe((personas) => {
-      
+    this.personaService.listarPersonas().subscribe((personas) => {
+      console.log(personas);
+      this.dataSource = personas;
     })
   }
 }
