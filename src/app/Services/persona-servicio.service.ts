@@ -7,7 +7,7 @@ import { Persona } from '../Models/Persona.interface';
   providedIn: 'root'
 })
 export class PersonaServicioService {
-  baseUrl = 'localhost:8080/api/users'
+  baseUrl = 'localhost:3000/'
   constructor(private http: HttpClient) { }
   listarPersonas() {
     return this.http.get<Persona[]>(this.baseUrl);

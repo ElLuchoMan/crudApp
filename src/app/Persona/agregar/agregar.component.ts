@@ -21,9 +21,8 @@ export class AgregarComponent implements OnInit {
   }
   guardarPersona() {
     const persona: Persona = {
-      name: this.personaForm.get('name')?.value,
-      lastname: this.personaForm.get('name')?.value,
-      email: this.personaForm.get('name')?.value,
+      username: this.personaForm.get('name')?.value,
+      password: this.personaForm.get('name')?.value,
     }
     this.personaService.agregarPersona(persona).subscribe(data => {
       console.log(data);
