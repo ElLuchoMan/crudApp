@@ -17,17 +17,13 @@ export class ListarComponent implements OnInit {
   ngOnInit(): void {
     this.cargarPersonas();
   }
-  editar(id: number) {
-    this.router.navigate(['editar']);
-    console.log("Editar");
-  }
   eliminar(id: number) {
     this.personaService.eliminarPersona(id);
-    console.log(id);
+    // console.log(id);
   }
   cargarPersonas() {
     this.personaService.listarPersonas().subscribe((personas) => {
-      console.log(personas);
+      // console.log(personas);
       this.dataSource = personas;
     })
   }
