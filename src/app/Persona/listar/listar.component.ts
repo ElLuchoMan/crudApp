@@ -13,16 +13,17 @@ export class ListarComponent implements OnInit {
 
   constructor(private router: Router, private personaService: PersonaServicioService) { }
   dataSource: Persona[] = [];
-  displayedColumns: string[] = ['id', 'nombre', 'apellido', 'correo', 'acciones'];
+  displayedColumns: string[] = ['id', 'user', 'acciones'];
   ngOnInit(): void {
     this.cargarPersonas();
   }
-  editar() {
+  editar(id: number) {
     this.router.navigate(['editar']);
     console.log("Editar");
   }
-  eliminar() {
-    console.log("Eliminar");
+  eliminar(id: number) {
+    this.personaService.eliminarPersona(id);
+    console.log(id);
   }
   cargarPersonas() {
     this.personaService.listarPersonas().subscribe((personas) => {

@@ -7,7 +7,7 @@ import { ListarComponent } from './Persona/listar/listar.component';
 const routes: Routes = [
   { path: 'listar', component: ListarComponent },
   { path: 'agregar', component: AgregarComponent },
-  { path: 'editar', component: EditarComponent },
+  { path: 'editar/:id', component: EditarComponent },
   { path: '**', component: AgregarComponent }
 ];
 
