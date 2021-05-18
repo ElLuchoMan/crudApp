@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { Persona } from 'src/app/Models/Persona.interface';
 import { PersonaServicioService } from 'src/app/Services/persona-servicio.service';
 
@@ -11,10 +12,10 @@ import { PersonaServicioService } from 'src/app/Services/persona-servicio.servic
 
 export class AgregarComponent implements OnInit {
   personaForm: FormGroup = this.fb.group({
-    usuario: ['', Validators.required],
-    password: ['', Validators.required]
+    usuario: [null, Validators.required],
+    password: [null, Validators.required]
   })
-  constructor(private fb: FormBuilder, private personaService: PersonaServicioService) { }
+  constructor(private fb: FormBuilder, private personaService: PersonaServicioService, private router: Router) { }
 
   ngOnInit(): void {
   }
@@ -24,9 +25,10 @@ export class AgregarComponent implements OnInit {
       userName: this.personaForm.get('usuario')?.value,
       password: this.personaForm.get('password')?.value,
     }
-    this.personaService.agregarPersona(usuario);
-    // this.personaForm.reset();
-    console.log(usuario);
-
+    this.personaService.agregarPersona(usuario).subscribe(usuario => {
+      console.log(usuario);
+    });
+    this.personaForm.reset();
+    this.router.navigate(['/listar']);
   }
 }
