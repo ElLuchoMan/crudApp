@@ -12,17 +12,17 @@ export class PersonaServicioService {
   listarPersonas() {
     return this.http.get(this.baseUrl);
   }
-  mostrarPersona(id: any) {
+  mostrarPersona(id: number) {
     return this.http.get<any>(this.baseUrl + `/${id}`)
   }
-  eliminarPersona(id: any) {
+  eliminarPersona(id: number) {
     return this.http.delete(this.baseUrl + `/${id}`);
   }
-  agregarPersona(usuario: any) {
-    return this.http.post<any>(this.baseUrl, usuario);
+  agregarPersona(usuario: Persona) {
+    return this.http.post<Persona>(this.baseUrl, usuario);
   }
-  editarPersona(id: number, usuario: any) {
-    return this.http.put(this.baseUrl + `/${id}`, usuario);
+  editarPersona(id: number, usuario: Persona) {
+    return this.http.put<Persona>(this.baseUrl + `/${id}`, usuario);
   }
 
 

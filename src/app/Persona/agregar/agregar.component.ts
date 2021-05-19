@@ -21,7 +21,7 @@ export class AgregarComponent implements OnInit {
   }
 
   guardarPersona() {
-    const usuario: any = {
+    const usuario: Persona = {
       userName: this.personaForm.get('usuario')?.value,
       password: this.personaForm.get('password')?.value,
     }

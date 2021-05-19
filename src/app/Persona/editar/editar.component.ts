@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Persona } from 'src/app/Models/Persona.interface';
 import { PersonaServicioService } from 'src/app/Services/persona-servicio.service';
 
 @Component({
@@ -14,7 +15,7 @@ export class EditarComponent implements OnInit {
     usuario: ['', Validators.required],
     password: ['', Validators.required]
   })
-  constructor(private fb: FormBuilder, private personaService: PersonaServicioService, private aRoute: ActivatedRoute,private router: Router) { }
+  constructor(private fb: FormBuilder, private personaService: PersonaServicioService, private aRoute: ActivatedRoute, private router: Router) { }
   id: any = 0;
   ngOnInit(): void {
     this.id = this.aRoute.snapshot.paramMap.get('id');
@@ -27,7 +28,7 @@ export class EditarComponent implements OnInit {
     });
   }
   actualizarPersona() {
-    const personaA: any = {
+    const personaA: Persona = {
       userName: this.personaActualizar.get('usuario')?.value,
       password: this.personaActualizar.get('password')?.value,
     }
