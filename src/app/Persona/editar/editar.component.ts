@@ -24,7 +24,7 @@ export class EditarComponent implements OnInit {
   }
   cargarPersona() {
     this.personaService.mostrarPersona(this.id).subscribe(usuario => {
-      console.log(usuario);
+      // console.log(usuario);
       this.persona = usuario;
     });
   }
@@ -39,7 +39,6 @@ export class EditarComponent implements OnInit {
     });
     this.personaActualizar.reset();
     this.router.navigate(['/listar']);
-
   }
 
 }

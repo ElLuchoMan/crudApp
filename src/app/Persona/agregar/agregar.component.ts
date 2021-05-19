@@ -32,5 +32,6 @@ export class AgregarComponent implements OnInit {
     });
     this.personaForm.reset();
     this.router.navigate(['/listar']);
+
   }
 }

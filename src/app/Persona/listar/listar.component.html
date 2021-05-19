@@ -12,8 +12,8 @@
         <ng-container matColumnDef="acciones">
             <th mat-header-cell *matHeaderCellDef>Acciones</th>
             <td mat-cell *matCellDef="let persona">
-                <button mat-raised-button color="primary" [routerLink]="['/editar',persona.id]">Editar</button>
-                <button mat-raised-button color="warn" (click)="eliminar(persona.id)">Eliminar</button>
+                <button mat-raised-button color="basic" [routerLink]="['/editar',persona.id]"><mat-icon>edit</mat-icon> </button>
+                <button mat-raised-button color="warn" (click)="eliminar(persona.id)"><mat-icon>delete</mat-icon> </button>
             </td>
         </ng-container>
         <!-- elementos necesarios para el mat-table de angular material-->

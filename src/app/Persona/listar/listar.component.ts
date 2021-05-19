@@ -27,9 +27,13 @@ export class ListarComponent implements OnInit {
     // console.log(id);
   }
   cargarPersonas() {
+
     this.personaService.listarPersonas().subscribe((personas) => {
       // console.log(personas);
       this.dataSource = personas;
+    })
+    this.personaService.listarPersonas().subscribe(data=>{
+      this.dataSource=data;
     })
   }
 }
